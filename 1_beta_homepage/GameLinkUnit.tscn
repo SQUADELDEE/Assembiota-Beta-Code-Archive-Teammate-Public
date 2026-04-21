@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://fh6irvr2ca6n"]
+
+[ext_resource type="Texture2D" uid="uid://df7sc2ge1ygmu" path="res://1_beta_homepage/resources/Demo_Assembiota_Map (1).png" id="1_f8h23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4o38"]
+bg_color = Color(0.75390625, 0.75390625, 0.75390625, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="GameLinkUnit" type="Node2D"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_children = 1
+offset_right = 1097.6
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4o38")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_f8h23")

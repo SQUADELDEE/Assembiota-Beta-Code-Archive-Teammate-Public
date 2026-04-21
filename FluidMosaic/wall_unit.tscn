@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3tl0o5ogkc8h"]
+
+[ext_resource type="StyleBox" uid="uid://coop8h1v8yoht" path="res://Eukaryote_Cell/smart_cell_grid.tres" id="1_rlk46"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_whxtt"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlk46"]
+size = Vector2(209, 205)
+
+[node name="WallUnit" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_whxtt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_rlk46")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -104.0
+offset_top = -101.0
+offset_right = 104.0
+offset_bottom = 106.0
+theme_override_styles/panel = ExtResource("1_rlk46")

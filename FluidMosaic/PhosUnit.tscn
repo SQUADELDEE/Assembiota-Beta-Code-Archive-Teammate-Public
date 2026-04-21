@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxhto6ldtkdax"]
+
+[ext_resource type="Texture2D" uid="uid://owybl2h0olou" path="res://FluidMosaic/resources/phospholipid.png" id="1_eykjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eykjl"]
+size = Vector2(48, 196.75)
+
+[node name="PhosUnit" type="Node2D"]
+scale = Vector2(0.8205688, 0.8205688)
+
+[node name="TopPhos" type="Sprite2D" parent="."]
+position = Vector2(0.99999994, -50.999996)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_eykjl")
+
+[node name="BottomPhos" type="Sprite2D" parent="."]
+position = Vector2(-3, 48)
+scale = Vector2(-0.2, -0.2)
+texture = ExtResource("1_eykjl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -1.375)
+shape = SubResource("RectangleShape2D_eykjl")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0ubqv25tiany"]
+
+[ext_resource type="Texture2D" uid="uid://bfvov2t7skri2" path="res://FluidMosaic/resources/basic_particle_texture.png" id="1_0f0vw"]
+[ext_resource type="Script" uid="uid://eyw151g4o7f" path="res://FluidMosaic/basic_particle.gd" id="1_fx6h3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fx6h3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_llm5v"]
+
+[node name="BasicParticle" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_fx6h3")
+gravity_scale = 0.0
+script = ExtResource("1_fx6h3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_llm5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.124997914, 0.12500459)
+scale = Vector2(0.056500003, 0.056500003)
+texture = ExtResource("1_0f0vw")

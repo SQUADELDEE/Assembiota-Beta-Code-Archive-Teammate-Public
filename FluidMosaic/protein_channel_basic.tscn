@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://4pfpd8eplyaj"]
+
+[ext_resource type="Script" uid="uid://3l1teld1wp57" path="res://FluidMosaic/protein_channel_basic.gd" id="1_mvy7y"]
+[ext_resource type="Texture2D" uid="uid://bdqud3al2jmgv" path="res://FluidMosaic/resources/ProteinChannel.png" id="1_sug3r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tunky"]
+radius = 13.0
+height = 262.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvy7y"]
+size = Vector2(39, 128.5)
+
+[node name="ProtienChannelBasic" type="Node2D"]
+scale = Vector2(1.1999999, 1.1999999)
+script = ExtResource("1_mvy7y")
+
+[node name="ProtienBody" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProtienBody"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_tunky")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProtienBody"]
+position = Vector2(0.124991655, -6.8750067)
+scale = Vector2(0.3195, 0.3195)
+texture = ExtResource("1_sug3r")
+
+[node name="bounder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounder"]
+position = Vector2(-36.5, -5.25)
+shape = SubResource("RectangleShape2D_mvy7y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bounder"]
+position = Vector2(38, -6)
+shape = SubResource("RectangleShape2D_mvy7y")
+
+[connection signal="body_entered" from="ProtienBody" to="." method="_on_protien_body_body_entered"]
+[connection signal="body_exited" from="ProtienBody" to="." method="_on_protien_body_body_exited"]

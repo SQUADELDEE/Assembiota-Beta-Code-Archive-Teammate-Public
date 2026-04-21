@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://cppvchw52pjpm"]
+
+[ext_resource type="PackedScene" uid="uid://b3tl0o5ogkc8h" path="res://FluidMosaic/wall_unit.tscn" id="1_2fu0w"]
+[ext_resource type="PackedScene" uid="uid://x11yp36112xu" path="res://FluidMosaic/carrier_protien.tscn" id="1_33fti"]
+[ext_resource type="Script" uid="uid://dounyifelsgob" path="res://FluidMosaic/membrane_base.gd" id="1_a6mf8"]
+[ext_resource type="PackedScene" uid="uid://dy735hn215u6k" path="res://FluidMosaic/active_transport_protein.tscn" id="3_a6mf8"]
+[ext_resource type="PackedScene" uid="uid://4pfpd8eplyaj" path="res://FluidMosaic/protein_channel_basic.tscn" id="3_e4bd0"]
+[ext_resource type="PackedScene" uid="uid://cvestfddplen8" path="res://FluidMosaic/membrane_manager.tscn" id="4_25lrk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4bd0"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="MembraneBase" type="Node2D"]
+script = ExtResource("1_a6mf8")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1962.0
+offset_bottom = 1107.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e4bd0")
+
+[node name="MembraneManager" parent="." instance=ExtResource("4_25lrk")]
+position = Vector2(42.000004, 519)
+scale = Vector2(0.88000095, 0.88000095)
+
+[node name="ActiveTransportProtein" parent="." instance=ExtResource("3_a6mf8")]
+position = Vector2(985.99994, 509)
+scale = Vector2(0.3775332, 0.3775332)
+
+[node name="CarrierProtein" parent="." instance=ExtResource("1_33fti")]
+position = Vector2(309, 515)
+scale = Vector2(0.49098405, 0.49098405)
+
+[node name="CarrierProtein2" parent="." instance=ExtResource("1_33fti")]
+position = Vector2(1672, 518)
+scale = Vector2(0.49098405, 0.49098405)
+
+[node name="ProtienChannelBasic" parent="." instance=ExtResource("3_e4bd0")]
+position = Vector2(626, 520.00006)
+
+[node name="ProtienChannelBasic3" parent="." instance=ExtResource("3_e4bd0")]
+position = Vector2(1384, 523.00006)
+
+[node name="WallUnit" parent="." instance=ExtResource("1_2fu0w")]
+position = Vector2(573, 3.9999995)
+scale = Vector2(14.296209, -0.32303476)
+
+[node name="WallUnit2" parent="." instance=ExtResource("1_2fu0w")]
+position = Vector2(824, 1097)
+scale = Vector2(14.296209, -0.32303476)
+
+[node name="WallUnit4" parent="." instance=ExtResource("1_2fu0w")]
+position = Vector2(-68, 595)
+scale = Vector2(1, 8.000002)
+
+[node name="WallUnit5" parent="." instance=ExtResource("1_2fu0w")]
+position = Vector2(1974, 523)
+scale = Vector2(1, 8.000002)
+
+[node name="ParticleSpawner" type="Node2D" parent="."]
+position = Vector2(852, 795)

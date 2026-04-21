@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy735hn215u6k"]
+
+[ext_resource type="Texture2D" uid="uid://cpsdls66o6olf" path="res://FluidMosaic/resources/ActiveTransporter.png" id="1_34ucb"]
+[ext_resource type="Script" uid="uid://ciid24up6n5h8" path="res://FluidMosaic/active_transport_protein.gd" id="1_cy0ab"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cy0ab"]
+radius = 71.0
+height = 1034.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fb2qr"]
+radius = 202.0
+height = 542.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34ucb"]
+size = Vector2(338, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy0ab"]
+size = Vector2(330.5, 130)
+
+[node name="ActiveTransportProtein" type="Node2D"]
+script = ExtResource("1_cy0ab")
+
+[node name="PartGrabber" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PartGrabber"]
+shape = SubResource("CapsuleShape2D_cy0ab")
+
+[node name="Sprite2D" type="Sprite2D" parent="PartGrabber"]
+texture = ExtResource("1_34ucb")
+
+[node name="ActiveBounds" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActiveBounds"]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_fb2qr")
+
+[node name="UpperMeridian" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperMeridian"]
+position = Vector2(3, -91)
+shape = SubResource("RectangleShape2D_34ucb")
+
+[node name="LowerMeridian" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerMeridian"]
+position = Vector2(-1.25, 107)
+shape = SubResource("RectangleShape2D_cy0ab")
+
+[connection signal="body_entered" from="PartGrabber" to="." method="_on_part_grabber_body_entered"]
+[connection signal="body_exited" from="PartGrabber" to="." method="_on_part_grabber_body_exited"]
+[connection signal="body_entered" from="UpperMeridian" to="." method="_on_upper_meridian_body_entered"]
+[connection signal="body_exited" from="UpperMeridian" to="." method="_on_upper_meridian_body_exited"]
+[connection signal="body_entered" from="LowerMeridian" to="." method="_on_lower_meridian_body_entered"]
+[connection signal="body_exited" from="LowerMeridian" to="." method="_on_lower_meridian_body_exited"]

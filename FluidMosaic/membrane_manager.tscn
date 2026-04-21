@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvestfddplen8"]
+
+[ext_resource type="Script" uid="uid://dicd3jpur0mpl" path="res://FluidMosaic/membrane_manager.gd" id="1_ysh8k"]
+
+[node name="MembraneManager" type="Node2D"]
+position = Vector2(348, 163)
+script = ExtResource("1_ysh8k")

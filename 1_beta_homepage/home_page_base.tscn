@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw2ujlfbswl3n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni8b3"]
+bg_color = Color(1, 0.93411255, 0.8671875, 1)
+
+[node name="HomePageBase" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1960.0
+offset_bottom = 1136.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ni8b3")
